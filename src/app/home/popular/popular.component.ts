@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/Models/course';
 import { CourseService } from 'src/app/Services/course.service';
 
@@ -10,10 +11,18 @@ import { CourseService } from 'src/app/Services/course.service';
 export class PopularComponent {
   courseService = inject(CourseService);
   popularCourses: Course[] = [];
+  router: Router = inject(Router)
+  activeRoute: ActivatedRoute = inject(ActivatedRoute)
 
   ngOnInit() {
     this.popularCourses = this.courseService.courses.filter(
       (c) => c.rating >= 4.5
     );
+  }
+
+  popularCoursesBtn() {
+    this.router.navigate(['Courses'])
+    // this.router.navigateByUrl('Courses')
+    // this.router.navigate(['Courses'], {relativeTo: this.activeRoute})
   }
 }
