@@ -21,18 +21,7 @@ import { TestimonyComponent } from './home/testimony/testimony.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ServicesService } from './Services/services.service';
 import { CourseService } from './Services/course.service';
-
-// ROUTES
-const routes: Routes = [
-  // {path: '', component:HomeComponent},
-  {path: '', redirectTo: 'Home', pathMatch: 'full'},
-  {path: 'Home', component:HomeComponent},
-  {path: 'About', component:AboutComponent},
-  {path: 'Contact', component:ContactComponent},
-  {path: 'Courses', component:CoursesComponent},
-  {path: 'Courses/Course/:id', component:CourseDetailComponent},
-  {path: '**', component:NotFoundComponent},
-]
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [
@@ -51,14 +40,10 @@ const routes: Routes = [
     ContactUsComponent,
     PopularComponent,
     ServicesComponent,
-    TestimonyComponent
+    TestimonyComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(routes)
-  ],
+  imports: [BrowserModule, AppRoutingModule, RoutingModule],
   providers: [ServicesService, CourseService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
