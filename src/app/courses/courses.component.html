@@ -24,11 +24,10 @@
                     <div class="course-rating"><b>RATINGS:</b> {{ course.rating }}</div>
                 </div>
                 <div class="course-action-buttons">
-                    <button class="btn">BUY NOW</button>
+                    <button class="btn" routerLink="/Courses/Checkout">BUY NOW</button>
                     <button class="btn" [routerLink]="'/Courses/Course/'+ course.id">DETAILS</button>
                 </div>
             </div>
         </div>
     </div>
-    <a routerLink="/Courses" [queryParams]="{search : 'JavaScript'}">click here</a>
 </div>

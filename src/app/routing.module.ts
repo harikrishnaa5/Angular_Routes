@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { PopularComponent } from './home/popular/popular.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { AuthGuardService } from './Services/authGuard.service';
 
 // ROUTES
 const routes: Routes = [
@@ -15,15 +17,17 @@ const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'About', component: AboutComponent },
   { path: 'Contact', component: ContactComponent },
+  { path: 'Courses', component: CoursesComponent },
   {
     path: 'Courses',
-    component: CoursesComponent,
     children: [
       { path: 'Course/:id', component: CourseDetailComponent },
       { path: 'Popular', component: PopularComponent },
+      { path: 'Checkout', component: CheckoutComponent, canActivate: [AuthGuardService] },
     ],
   },
   { path: 'login', component: LoginComponent },
+
   { path: '**', component: NotFoundComponent },
 ];
 @NgModule({
