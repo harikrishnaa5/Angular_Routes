@@ -23,6 +23,7 @@ import { ServicesService } from './Services/services.service';
 import { CourseService } from './Services/course.service';
 import { RoutingModule } from './routing.module';
 import { AuthService } from './Services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { AuthService } from './Services/auth.service';
     ServicesComponent,
     TestimonyComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RoutingModule],
+  imports: [BrowserModule, AppRoutingModule, RoutingModule, FormsModule],
   providers: [ServicesService, CourseService, AuthService],
   bootstrap: [AppComponent],
 })
