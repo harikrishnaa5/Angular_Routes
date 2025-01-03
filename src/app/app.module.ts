@@ -22,6 +22,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ServicesService } from './Services/services.service';
 import { CourseService } from './Services/course.service';
 import { RoutingModule } from './routing.module';
+import { AuthService } from './Services/auth.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { RoutingModule } from './routing.module';
     TestimonyComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, RoutingModule],
-  providers: [ServicesService, CourseService],
+  providers: [ServicesService, CourseService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

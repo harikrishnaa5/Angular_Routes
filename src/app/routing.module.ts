@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { PopularComponent } from './home/popular/popular.component';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 // ROUTES
 const routes: Routes = [
@@ -14,18 +15,19 @@ const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'About', component: AboutComponent },
   { path: 'Contact', component: ContactComponent },
-  { path: 'Courses', component: CoursesComponent },
   {
     path: 'Courses',
+    component: CoursesComponent,
     children: [
       { path: 'Course/:id', component: CourseDetailComponent },
-      { path: 'popular', component: PopularComponent },
+      { path: 'Popular', component: PopularComponent },
     ],
   },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class RoutingModule {}
